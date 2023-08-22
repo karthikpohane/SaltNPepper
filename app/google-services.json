@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "563521883072",
+    "firebase_url": "https://salt-pepper-dbeb5-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "salt-pepper-dbeb5",
+    "storage_bucket": "salt-pepper-dbeb5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:563521883072:android:81cb72ece4cbe0af635625",
+        "android_client_info": {
+          "package_name": "com.example.salt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "563521883072-ts51dle9ck0rda6n6p77lo039r15kvc8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBR2NEd7NxJFmWKIrtCp-TtShb-dc6T9ck"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "563521883072-ts51dle9ck0rda6n6p77lo039r15kvc8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
