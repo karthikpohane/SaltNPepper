@@ -4,11 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -20,11 +23,23 @@ public class loginpg extends AppCompatActivity {
     private EditText email;
     private EditText password;
     private FirebaseAuth auth;
+    int flag = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loginpg);
+
+        //video
+        VideoView videoview = (VideoView) findViewById(R.id.video_one);
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.video_one);
+        videoview.setVideoURI(uri);
+        videoview.start();
+        videoview.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            public void onCompletion(MediaPlayer mp) {
+                videoview.start(); //need to make transition seamless.
+            }
+        });
 
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
@@ -32,10 +47,11 @@ public class loginpg extends AppCompatActivity {
 
         // Checking if the user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = auth.getCurrentUser();
-        if (currentUser != null) {
+        if (currentUser != null && flag !=0) {
 //            Log.d(TAG, "Currently Signed in: " + currentUser.getEmail());
             Toast.makeText(loginpg.this, "Currently Logged in: " + currentUser.getEmail(), Toast.LENGTH_LONG).show();
             startActivity(new Intent(loginpg.this,MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
+            flag = 0;
         }
 
         Button reg_btn = findViewById(R.id.reg_btn);

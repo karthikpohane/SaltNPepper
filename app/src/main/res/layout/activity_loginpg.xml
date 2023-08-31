@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".loginpg"
-    android:background="@color/black">
+    android:layout_height="match_parent">
+
+    <VideoView
+        android:id="@+id/video_one"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="0dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_black"
+        android:elevation="10dp">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -41,14 +51,19 @@
                 android:layout_marginBottom="10dp"
                 android:ems="10"
                 android:textSize="18sp"
-                android:hint="Email"
+                android:hint=" Email"
                 android:inputType="text"
                 android:textColor="#FFFFFF"
                 android:textColorHint="#FFE8DEDE"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                android:drawableLeft="@drawable/alternate_email_24"
+                android:background="@drawable/edt_background"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"/>
 
             <EditText
                 android:id="@+id/password"
@@ -59,14 +74,19 @@
                 android:layout_marginBottom="10dp"
                 android:ems="10"
                 android:textSize="18sp"
-                android:hint="Password"
+                android:hint=" Password"
                 android:inputType="textPassword"
                 android:textColor="#FFFFFF"
                 android:textColorHint="#E8DEDE"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextusername" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextusername"
+                android:background="@drawable/edt_background"
+                android:drawableLeft="@drawable/password_24"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"/>
 
             <CheckBox
                 android:id="@+id/checkBox"
@@ -124,4 +144,5 @@
         </LinearLayout>
 
     </ScrollView>
-</LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

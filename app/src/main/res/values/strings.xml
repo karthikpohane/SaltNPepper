@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">Salt</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="timer_placeholder">%1$s:%2$s</string>
+    <string name="recording_status">Recording&#8230;</string>
+    <string name="not_recording_status">Tap the button to start recording</string>
+    <string name="resume_recording_status">Tap the Record button to resume recording</string>
+    <string name="timer_text">00:00</string>
+    <string name="delete_recording">Delete</string>
+    <string name="rename_recording">Rename</string>
+    <string name="open_recording">Open</string>
+    <string name="open_with_recording">Open With</string>
+    <string name="share_recording">Share</string>
+
+    <string name="share_via_label">Share via</string>
+    <string name="delete_dialog_title">Proceed To Delete\?</string>
+    <string name="name_label">Name:</string>
+    <string name="ok_label">OK</string>
+    <string name="proceed_label">Proceed</string>
+    <string name="cancel_label">Cancel</string>
+    <string name="sort_by">Sort by</string>
+    <string name="by_name">Name</string>
+    <string name="by_recent">Most recent</string>
+    <string name="save_recording">Save Recording\?</string>
+
+    <string name="home_tab_label">RECORD</string>
+    <string name="sound_list_tab_label">SAVED RECORDINGS</string>
 </resources>

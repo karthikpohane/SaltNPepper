@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".storeFrag">
+    tools:context=".localSongsFrag"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/black_20">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/txtFrag"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Store Screen"
-        android:textColor="#000000"
-        android:textSize="30sp"
+        android:text="Local Songs form Your Storage!!"
+        android:textSize="30dp"
         android:textStyle="italic|bold" />
 
-</FrameLayout>
+</LinearLayout>

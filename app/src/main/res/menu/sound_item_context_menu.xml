@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/open_recording"
+        android:title="@string/open_recording" />
+    <item
+        android:id="@+id/open_with_recording"
+        android:title="@string/open_with_recording" />
+    <item
+        android:id="@+id/share_recording"
+        android:title="@string/share_recording" />
+    <item
+        android:id="@+id/rename_recording"
+        android:title="@string/rename_recording" />
+    <item
+        android:id="@+id/delete_recording"
+        android:title="@string/delete_recording" />
+</menu>

@@ -2,6 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +21,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Salt"
         tools:targetApi="31">
+        <activity
+            android:name=".RecordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".likedSongs_pg"
+            android:exported="false" />
+        <activity
+            android:name=".faq_pg"
+            android:exported="false" />
+        <activity
+            android:name=".aboutUs_pg"
+            android:exported="false" />
+        <activity
+            android:name=".UploadActivity"
+            android:exported="false" />
+        <activity
+            android:name=".manageAccount"
+            android:exported="false" />
+        <activity
+            android:name=".editProfile"
+            android:exported="false" />
+        <activity
+            android:name=".bolt_pg"
+            android:exported="false" />
+        <activity
+            android:name=".settings_pg"
+            android:exported="false" />
         <activity
             android:name=".Registerpg"
             android:exported="false" />

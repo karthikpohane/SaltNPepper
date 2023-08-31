@@ -7,4 +7,17 @@
     <color name="third">#001C30</color>
     <color name="forth">#DAFFFB</color>
     <color name="fifth">#3D3D3D</color>
+
+    <color name="bar_20">#331194AA</color>
+    <color name="bar">#1194AA</color>
+
+    <color name="like">#F50057</color>
+    <color name="like_20">#33F50057</color>
+    <color name="black_20">#33000000</color>
+    <color name="white_50">#80FFFFFF</color>
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="lightGrey">#EEEDED</color>
 </resources>
