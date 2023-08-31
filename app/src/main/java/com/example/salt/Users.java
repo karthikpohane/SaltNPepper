@@ -18,6 +18,9 @@ public class Users {
         this.age = age;
     }
 
+    public Users() {
+    }
+
     public String getFirstname() {
         return firstname;
     }

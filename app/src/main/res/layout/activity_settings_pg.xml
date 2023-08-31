@@ -76,6 +76,7 @@
                 android:layout_gravity="center"
                 android:text="kartikpohane0612@gmail.com"
                 android:textSize="12sp"
+                android:id="@+id/email"
                 android:textColor="@color/forth"/>
 
             <LinearLayout
@@ -95,8 +96,8 @@
                     android:paddingEnd="30dp"
                     android:layout_gravity="center"
                     android:background="@drawable/rounded"
-                    android:text="Edit Profile"
                     android:textColor="@color/bar"
+                    android:text="Edit Profile"
                     android:textAllCaps="false"/>
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -466,7 +467,7 @@
                         android:padding="10dp"/>
                     <TextView
                         android:id="@+id/logout"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
