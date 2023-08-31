@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".loginpg"
     android:background="@color/black">
-    
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"

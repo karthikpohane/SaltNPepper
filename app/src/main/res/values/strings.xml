@@ -24,5 +24,9 @@
     <string name="save_recording">Save Recording\?</string>
 
     <string name="home_tab_label">RECORD</string>
-    <string name="sound_list_tab_label">SAVED RECORDINGS</string>
+    <string name="sound_list_tab_label">RECORDINGS</string>
+
+    <string name="morning_greeting">Good Morning!</string>
+    <string name="afternoon_greeting">Good Afternoon!</string>
+    <string name="evening_greeting">Good Evening!</string>
 </resources>

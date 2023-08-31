@@ -70,12 +70,12 @@ public class RecordPlayerDialog extends DialogFragment {
                         Toast.makeText(getContext(), "paused", Toast.LENGTH_SHORT).show();
                         mIsPlaying = false;
                         mMediaPlayer.pause();
-                        mPlayPauseButton.setImageResource(R.mipmap.ic_play);
+                        mPlayPauseButton.setImageResource(R.drawable.play_arrow_24);
                     } else {
                         Toast.makeText(getContext(), "played", Toast.LENGTH_SHORT).show();
                         mIsPlaying = true;
                         mMediaPlayer.start();
-                        mPlayPauseButton.setImageResource(R.mipmap.ic_pause);
+                        mPlayPauseButton.setImageResource(R.drawable.pause_24);
                     }
                 }
             });

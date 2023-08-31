@@ -51,6 +51,7 @@ public class loginpg extends AppCompatActivity {
 //            Log.d(TAG, "Currently Signed in: " + currentUser.getEmail());
             Toast.makeText(loginpg.this, "Currently Logged in: " + currentUser.getEmail(), Toast.LENGTH_LONG).show();
             startActivity(new Intent(loginpg.this,MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
+            finish();
             flag = 0;
         }
 

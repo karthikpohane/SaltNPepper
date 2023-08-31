@@ -6,26 +6,29 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
     app:cardElevation="2dp"
-    app:cardCornerRadius="4dp">
+    app:cardCornerRadius="4dp"
+    android:backgroundTint="@color/black">
 
     <LinearLayout
+        android:layout_marginTop="30dp"
+        android:padding="20dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_bg_switch">
 
         <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:src="@mipmap/ic_record"
             app:backgroundTint="@color/colorPrimary"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_gravity="center_vertical"
-            android:padding="6dp"
             android:background="@drawable/round_button_thumbnail"
             app:tint="@color/colorAccent" />
 
         <LinearLayout
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="5"
@@ -37,21 +40,28 @@
                 android:id="@+id/sound_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="2dp"
+                android:layout_marginBottom="6dp"
                 android:text="Sound title mp4"
-                android:textStyle="bold"/>
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/sound_duration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="00:58"/>
+                android:text="00:00"
+                android:textSize="14sp"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/sound_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Jul 05, 2015 - 05:24 PM"/>
+                android:text="Jul 05, 2015 - 05:24 PM"
+                android:textSize="14sp"
+                android:textStyle="italic"
+                android:textColor="@color/white"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

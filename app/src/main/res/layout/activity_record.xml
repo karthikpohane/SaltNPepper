@@ -6,7 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecordActivity">
+    tools:context=".RecordActivity"
+    android:background="@color/black">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,18 +16,39 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@null"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:title="@string/app_name"
-                android:background="@color/black"
-                app:layout_scrollFlags="scroll|enterAlways"/>
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/back_btn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/arrow_back_i24"
+                    android:padding="14dp" />
+
+                <androidx.appcompat.widget.Toolbar
+
+                    android:id="@+id/toolbar"
+                    android:layout_width="313dp"
+                    android:layout_height="wrap_content"
+                    app:layout_scrollFlags="scroll|enterAlways"
+                    app:title="Record">
+
+                </androidx.appcompat.widget.Toolbar>
+
+
+            </LinearLayout>
+
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tab_layout"
+                android:background="@null"
+                app:tabTextColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
@@ -36,6 +58,6 @@
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:background="@color/black"/>
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

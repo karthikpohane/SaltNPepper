@@ -5,15 +5,31 @@
     android:layout_height="match_parent"
     tools:context=".homeFrag">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/txtFrag"
+    <RelativeLayout
+        android:padding="10dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Home Screen"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:textStyle="italic|bold" />
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/greetingTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:elevation="10dp"
+                android:fontFamily="@font/bowlby_one_sc"
+                android:textAlignment="center"
+                android:textColor="@color/forth"
+                android:textSize="50sp"
+                android:textStyle="bold|italic" />
+        </LinearLayout>
+
+
+<!--        android:layout_alignBottom="@+id/txtFrag"-->
+
+    </RelativeLayout>
 
 </FrameLayout>

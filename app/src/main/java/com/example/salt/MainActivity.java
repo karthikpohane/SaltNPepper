@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 if (selectedTab != 1) {
 
                     //Loading Fragments
-                    loadFragment(new homeFrag(),0);
+//                    loadFragment(new homeFrag(),0);
 
                     //Text
                     searchTxt.setVisibility(View.GONE);
