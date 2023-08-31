@@ -304,4 +304,11 @@ public class UploadActivity extends AppCompatActivity implements AdapterView.OnI
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Select Picture"),PICK_IMAGE_REQUEST);
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), bolt_pg.class);
+        startActivity(intent);
+        finish();
+    }
 }

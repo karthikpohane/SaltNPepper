@@ -28,6 +28,7 @@ public class bolt_pg extends AppCompatActivity {
             }
         });
 
+
         RelativeLayout upload_btn = findViewById(R.id.upload_btn);
         upload_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,5 +49,11 @@ public class bolt_pg extends AppCompatActivity {
             }
         });
 
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

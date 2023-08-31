@@ -92,4 +92,10 @@ public class likedSongs_pg extends AppCompatActivity {
             heart_btn.startAnimation(rotateClose);
         }
     }
+    @Override
+    public void onBackPressed() {
+        finish();
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+    }
 }

@@ -101,6 +101,12 @@ public class RecordActivity extends AppCompatActivity implements RecordFragment.
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         getMenuInflater().inflate(R.menu.sound_item_context_menu, menu);
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), bolt_pg.class);
+        startActivity(intent);
+        finish();
+    }
 
 }
 

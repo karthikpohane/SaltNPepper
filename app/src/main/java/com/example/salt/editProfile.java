@@ -139,4 +139,10 @@ public class editProfile extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+        finish();
+        Intent intent = new Intent(getApplicationContext(), settings_pg.class);
+        startActivity(intent);
+    }
 }
