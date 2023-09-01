@@ -16,9 +16,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -31,6 +35,7 @@ import com.google.firebase.database.ValueEventListener;
 public class settings_pg extends AppCompatActivity {
     SwitchCompat switchCompat;
     private TextView fullname,email;
+    private LinearLayout delAcc;
     FirebaseUser currentUser;
     DatabaseReference ref;
     ValueEventListener valueEventListener;
@@ -44,6 +49,7 @@ public class settings_pg extends AppCompatActivity {
         ref = FirebaseDatabase.getInstance().getReference().child("user");
         fullname = findViewById(R.id.fullname);
         email = findViewById(R.id.email);
+        delAcc = findViewById(R.id.delAcc);
 
         //Night Mode Switch..
         switchCompat = findViewById(R.id.nightModeToggle);
@@ -210,6 +216,36 @@ public class settings_pg extends AppCompatActivity {
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
 
+                }
+            });
+
+            delAcc.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(settings_pg.this);
+
+                    // Set the message show for the Alert time
+                    builder.setMessage("Are you sure you want to delete account?");
+
+                    // Set Alert Title
+                    builder.setTitle("Alert !");
+
+                    // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                    builder.setCancelable(false);
+
+                    // Set the positive button with yes name Lambda OnClickListener method is use of DialogInterface interface.
+                    builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
+                        // When the user click yes button then app will close
+                       //TODO: delete user
+                        finish();
+                    });
+                    builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which) -> {
+                        // If user click no then dialog box is canceled.
+                        dialog.cancel();
+                    });
+                    AlertDialog alertDialog = builder.create();
+                    // Show the Alert Dialog box
+                    alertDialog.show();
                 }
             });
         }

@@ -7,6 +7,7 @@
     <color name="third">#001C30</color>
     <color name="forth">#DAFFFB</color>
     <color name="fifth">#3D3D3D</color>
+    <color name="transparent">#00000000</color>
 
     <color name="bar_20">#331194AA</color>
     <color name="bar">#1194AA</color>
