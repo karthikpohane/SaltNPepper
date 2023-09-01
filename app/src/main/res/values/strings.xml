@@ -29,4 +29,17 @@
     <string name="morning_greeting">Good Morning!</string>
     <string name="afternoon_greeting">Good Afternoon!</string>
     <string name="evening_greeting">Good Evening!</string>
+
+        <string name="view1">Top 5 Trending Songs</string>
+        <string name="view2">Top 5 Bollywood Songs</string>
+        <string name="view3">Top 5 Hollywood Songs</string>
+        <string name="view4">Songs You may Like</string>
+        <string name="view5">Popular Uploads</string>
+
+        <string name="subview1">World-Wide Hit Songs......</string>
+        <string name="subview2">Indi-Culture</string>
+        <string name="subview3">International-Hits</string>
+        <string name="subview4">Based on Your Test</string>
+        <string name="subview5">Gone-Viral</string>
+
 </resources>
