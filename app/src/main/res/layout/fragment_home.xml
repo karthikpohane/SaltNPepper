@@ -12,21 +12,30 @@
         <LinearLayout
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/greetingTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:elevation="10dp"
                 android:fontFamily="@font/bowlby_one_sc"
-                android:textAlignment="center"
+                android:textAlignment="viewStart"
+                android:textColor="@color/forth"
+                android:textSize="50sp"
+                android:textStyle="bold|italic" />
+            <TextView
+                android:id="@+id/nameTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="10dp"
+                android:fontFamily="@font/bowlby_one_sc"
+                android:textAlignment="viewEnd"
                 android:textColor="@color/forth"
                 android:textSize="50sp"
                 android:textStyle="bold|italic" />
         </LinearLayout>
-
 
 <!--        android:layout_alignBottom="@+id/txtFrag"-->
 

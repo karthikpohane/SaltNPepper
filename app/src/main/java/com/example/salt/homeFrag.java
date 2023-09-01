@@ -4,11 +4,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.jean.jcplayer.model.JcAudio;
+import com.example.jean.jcplayer.view.JcPlayerView;
+import com.example.salt.Adapter.JcSongsAdapter;
+import com.example.salt.Model.GetSongs;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -17,13 +25,23 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class homeFrag extends Fragment {
     private TextView greetingTextView,nameTextView;
     FirebaseUser currentUser;
-    DatabaseReference ref;
+    RecyclerView recyclerView;
+    ProgressBar progressBar;
+    DatabaseReference ref,databaseReference;
     ValueEventListener valueEventListener;
+    ArrayList<JcAudio> jcAudios = new ArrayList<>();
+    private int currentIndex;
+    JcPlayerView jcPlayerView;
+    Boolean checkin = false;
+    List<GetSongs> mupload;
+    JcSongsAdapter adapter;
 
     public homeFrag() {
         // Required empty public constructor
@@ -46,6 +64,7 @@ public class homeFrag extends Fragment {
         nameTextView = view.findViewById(R.id.nameTextView);
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         ref = FirebaseDatabase.getInstance().getReference("user");
+        databaseReference = FirebaseDatabase.getInstance().getReference("songs");
 
         // Get the current time
         Calendar calendar = Calendar.getInstance();
@@ -82,6 +101,6 @@ public class homeFrag extends Fragment {
             });
         }
 
-            return view;
+        return view;
     }
 }
