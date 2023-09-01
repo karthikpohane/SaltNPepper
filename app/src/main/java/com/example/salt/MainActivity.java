@@ -1,5 +1,6 @@
 package com.example.salt;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -27,16 +28,75 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bnView;
     private int selectedTab = 1;
 
+    private TextView greetingTextView,nameTextView;
+    FirebaseUser currentUser;
+    DatabaseReference ref,databaseReference;
+    ValueEventListener valueEventListener;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Getting Greetings..........
+        greetingTextView = findViewById(R.id.greetingTextView);
+
+        // Get the current time
+        Calendar calendar = Calendar.getInstance();
+        int hourOfDay = calendar.get(Calendar.HOUR_OF_DAY);
+
+        // Set the appropriate greeting based on the time of day
+        String greeting;
+        if (hourOfDay >= 0 && hourOfDay < 12) {
+            greeting = "Good Morning!";
+        } else if (hourOfDay >= 12 && hourOfDay < 18) {
+            greeting = "Good Afternoon!";
+        } else {
+            greeting = "Good Evening!";
+        }
+
+        greetingTextView.setText(greeting);
+
+        //Name Display.......
+        TextView nameTextView = findViewById(R.id.nameTextView);
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        ref = FirebaseDatabase.getInstance().getReference("user");
+        databaseReference = FirebaseDatabase.getInstance().getReference("songs");
+        if (currentUser != null) {
+            valueEventListener = ref.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for (DataSnapshot das : snapshot.getChildren()) {
+                        Users user = das.getValue(Users.class);
+                        if (user.getEmail().equals(currentUser.getEmail())) {
+                            nameTextView.setText(user.getEmail());
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
+
 
         final LinearLayout homeLayout = findViewById(R.id.homeLayout);
         final LinearLayout searchLayout = findViewById(R.id.searchLayout);
@@ -57,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         final TextView settingTxt = findViewById(R.id.settingTxt);
 
         //setting home as default.
-        loadFragment(new homeFrag(), 0);
+//        loadFragment(new homeFrag(), 0);
         ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.RECORD_AUDIO},0);
         ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
 
@@ -320,18 +380,18 @@ public class MainActivity extends AppCompatActivity {
 //        bnView.setSelectedItemId(R.id.home);
 //    }
 
-    public void loadFragment(Fragment fragment, int flag) {
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        if (flag != 0) {
-            ft.setReorderingAllowed(true).add(R.id.fragmentContainer, fragment);
-        } else {
-            ft.setReorderingAllowed(true).replace(R.id.container, fragment);
-        }
-//        ft.setReorderingAllowed(true).replace(R.id.container, fragment);
-        ft.commit();
-
-    }
+//    public void loadFragment(Fragment fragment, int flag) {
+//        FragmentManager fm = getSupportFragmentManager();
+//        FragmentTransaction ft = fm.beginTransaction();
+//        if (flag != 0) {
+//            ft.setReorderingAllowed(true).add(R.id.fragmentContainer, fragment);
+//        } else {
+//            ft.setReorderingAllowed(true).replace(R.id.container, fragment);
+//        }
+////        ft.setReorderingAllowed(true).replace(R.id.container, fragment);
+//        ft.commit();
+//
+//    }
 
     @Override
     public void onBackPressed() {
