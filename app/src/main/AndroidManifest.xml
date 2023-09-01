@@ -22,6 +22,9 @@
         android:theme="@style/Theme.Salt"
         tools:targetApi="31">
         <activity
+            android:name=".search_pg"
+            android:exported="false" />
+        <activity
             android:name=".RecordActivity"
             android:exported="false" />
         <activity

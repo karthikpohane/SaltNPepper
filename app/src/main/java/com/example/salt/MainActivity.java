@@ -110,7 +110,9 @@ public class MainActivity extends AppCompatActivity {
                 if (selectedTab != 2) {
 
                     //Loading Fragments
-                    loadFragment(new searchFrag(),0);
+//                    loadFragment(new searchFrag(),0);
+                    Intent intent = new Intent(getApplicationContext(), search_pg.class);
+                    startActivity(intent);
 
                     //Text
                     homeTxt.setVisibility(View.GONE);
