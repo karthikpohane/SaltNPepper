@@ -79,12 +79,51 @@
 
         </RelativeLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="16dp"
-            />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Top 5 hits"
+                android:textSize="20dp"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textColor="@color/white_50"/>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+            </ScrollView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Top 5 Suggestions"
+                android:textSize="20dp"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textColor="@color/white_50"/>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp"
+                    />
+            </ScrollView>
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -259,5 +298,10 @@
 <!--        android:layout_height="646dp"-->
 <!--        android:layout_marginBottom="?attr/actionBarSize" />-->
 
+    <FrameLayout
+        android:id="@+id/songFrag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="80dp"/>
 
 </RelativeLayout>

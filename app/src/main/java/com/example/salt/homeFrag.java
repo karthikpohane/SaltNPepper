@@ -36,12 +36,6 @@ public class homeFrag extends Fragment {
     ProgressBar progressBar;
     DatabaseReference ref,databaseReference;
     ValueEventListener valueEventListener;
-    ArrayList<JcAudio> jcAudios = new ArrayList<>();
-    private int currentIndex;
-    JcPlayerView jcPlayerView;
-    Boolean checkin = false;
-    List<GetSongs> mupload;
-    JcSongsAdapter adapter;
 
     public homeFrag() {
         // Required empty public constructor

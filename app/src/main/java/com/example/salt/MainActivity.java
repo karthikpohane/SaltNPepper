@@ -8,6 +8,9 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.Manifest;
 
 import android.app.Notification;
@@ -25,8 +28,14 @@ import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.jean.jcplayer.model.JcAudio;
+import com.example.jean.jcplayer.view.JcPlayerView;
+import com.example.salt.Adapter.JcSongsAdapter;
+import com.example.salt.Model.GetSongs;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -36,7 +45,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,7 +57,13 @@ public class MainActivity extends AppCompatActivity {
     private TextView greetingTextView,nameTextView;
     FirebaseUser currentUser;
     DatabaseReference ref,databaseReference;
-    ValueEventListener valueEventListener;
+    ValueEventListener valueEventListener,valueEventListener1,valueEventListener2;
+    ArrayList<JcAudio> jcAudios = new ArrayList<>();
+    private int currentIndex;
+    RecyclerView recyclerView1,recyclerView2;
+    Boolean checkin = false;
+    List<GetSongs> mupload;
+    JcSongsAdapter adapter,adapter1;
 
 
     @Override
@@ -56,6 +73,13 @@ public class MainActivity extends AppCompatActivity {
 
         //Getting Greetings..........
         greetingTextView = findViewById(R.id.greetingTextView);
+        recyclerView1 = findViewById(R.id.recyclerView1);
+        recyclerView1.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView1.setAdapter(adapter);
+        recyclerView2 = findViewById(R.id.recyclerView2);
+        recyclerView2.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView2.setAdapter(adapter1);
+        mupload = new ArrayList<>();
 
         // Get the current time
         Calendar calendar = Calendar.getInstance();
@@ -74,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         greetingTextView.setText(greeting);
 
         //Name Display.......
-        TextView nameTextView = findViewById(R.id.nameTextView);
+        nameTextView = findViewById(R.id.nameTextView);
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         ref = FirebaseDatabase.getInstance().getReference("user");
         databaseReference = FirebaseDatabase.getInstance().getReference("songs");
@@ -345,6 +369,98 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        //----------- song display ----------------
+        adapter = new JcSongsAdapter(getApplicationContext(), mupload, new JcSongsAdapter.RecyclerItemClickListner() {
+            @Override
+            public void onClickListener(GetSongs songs, int position) {
+                changeSelectedSong(position);
+                System.out.println("Hey");
+                OneSongFragment fragment = new OneSongFragment(position);
+                fragment.setSong(songs);
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.add(R.id.songFrag,fragment);
+                ft.commit();
+            }
+        });
+
+        valueEventListener1 = databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                mupload.clear();
+                for(DataSnapshot das: snapshot.getChildren()){
+                    System.out.println("Hi");
+                    GetSongs getSongs = das.getValue(GetSongs.class);
+                    getSongs.setmKey(das.getKey());
+                    currentIndex = 0;
+                    mupload.add(getSongs);
+                    checkin = true;
+                    jcAudios.add(JcAudio.createFromURL(getSongs.getSongTitle(),getSongs.getSongLink()));
+                }
+                adapter.setSelectedPosition(0);
+                recyclerView1.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+
+                if(checkin){
+                } else {
+                    Toast.makeText(MainActivity.this, "there is no songs!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        adapter1 = new JcSongsAdapter(getApplicationContext(), mupload, new JcSongsAdapter.RecyclerItemClickListner() {
+            @Override
+            public void onClickListener(GetSongs songs, int position) {
+                changeSelectedSong(position);
+                OneSongFragment fragment = new OneSongFragment(position);
+                fragment.setSong(songs);
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.add(R.id.songFrag,fragment);
+                ft.commit();
+            }
+        });
+
+        valueEventListener2 = databaseReference.limitToLast(5).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                mupload.clear();
+                for(DataSnapshot das: snapshot.getChildren()){
+                    GetSongs getSongs = das.getValue(GetSongs.class);
+                    getSongs.setmKey(das.getKey());
+                    currentIndex = 0;
+                    mupload.add(getSongs);
+                    checkin = true;
+                    jcAudios.add(JcAudio.createFromURL(getSongs.getSongTitle(),getSongs.getSongLink()));
+                }
+                adapter1.setSelectedPosition(0);
+                recyclerView2.setAdapter(adapter1);
+                adapter.notifyDataSetChanged();
+
+                if(checkin){
+                } else {
+                    Toast.makeText(MainActivity.this, "there is no songs!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    public void changeSelectedSong(int index){
+        adapter.notifyItemChanged(adapter.getSelectedPosition());
+        currentIndex = index;
+        adapter.setSelectedPosition(currentIndex);
+        adapter.notifyItemChanged(currentIndex);
+    }
+    public ArrayList<JcAudio> getJcAudios() {
+        return jcAudios;
     }
 
 //        bnView = findViewById(R.id.bnView);

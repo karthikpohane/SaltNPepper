@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bubble_size">75dp</dimen>
+    <dimen name="wave_height">80dp</dimen>
+    <dimen name="footer_height">200dp</dimen>
+    <dimen name="default_horizontal_margin">8dp</dimen>
+    <dimen name="expanded_horizontal_margin">16dp</dimen>
+    <dimen name="reduced_horizontal_margin">4dp</dimen>
+    <dimen name="default_vertical_margin">8dp</dimen>
+    <dimen name="expanded_vertical_margin">16dp</dimen>
+    <dimen name="reduced_vertical_margin">4dp</dimen>
+</resources>

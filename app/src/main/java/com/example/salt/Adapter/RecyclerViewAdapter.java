@@ -13,18 +13,21 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.salt.Model.Upload;
+import com.example.salt.Model.Uploads;
 import com.example.salt.R;
-//import com.example.salt.SongActivity;
-//TODO uncomment this
+import com.example.salt.SongActivity;
+import com.google.android.material.card.MaterialCardView;
+
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
     private Context mContext;
-    private List<Upload> uploads;
+    private List<Uploads> uploads;
 
-    public RecyclerViewAdapter(Context mContext, List<Upload> uploads) {
+    public RecyclerViewAdapter(Context mContext, List<Uploads> uploads) {
         this.mContext = mContext;
         this.uploads = uploads;
     }
@@ -40,18 +43,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final Upload upload = uploads.get(position);
+        final Uploads upload = uploads.get(position);
         holder.txtBookName.setText(upload.getName());
         Glide.with(mContext).load(upload.getUrl()).into(holder.book_img_id);
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(mContext, SongActivity.class);
-//                intent.putExtra("songsCategory",upload.getSongsCategory());
-//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                mContext.startActivity(intent);
-                //TODO uncomment this
+                Intent intent = new Intent(mContext, SongActivity.class);
+                intent.putExtra("songsCategory",upload.getSongsCategory());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                mContext.startActivity(intent);
             }
         });
     }
@@ -62,9 +64,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-    private TextView txtBookName;
-    private ImageView book_img_id;
-    private CardView cardView;
+        private TextView txtBookName;
+        private ImageView book_img_id;
+        private CardView cardView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -75,3 +77,4 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
     }
 }
+
