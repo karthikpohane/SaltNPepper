@@ -30,11 +30,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:elevation="10dp"
-                android:fontFamily="@font/bowlby_one_sc"
+                android:fontFamily="@font/archivo_black"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/forth"
-                android:textSize="50sp"
-                android:textStyle="bold|italic" />
+                android:textSize="20sp"
+                android:textStyle="italic" />
         </LinearLayout>
 
 <!--        android:layout_alignBottom="@+id/txtFrag"-->
