@@ -34,17 +34,24 @@
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded"
-        android:padding="10dp">
+        android:background="@drawable/rounded_bg_switch"
+        android:padding="2dp"
+        android:elevation="10dp">
 
         <AutoCompleteTextView
             android:id="@+id/searchAutoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:drawableLeft="@android:drawable/ic_search_category_default"
+            android:drawableStart="@android:drawable/ic_search_category_default"
+            android:drawablePadding="8dp"
+            android:drawableEnd="@drawable/ic_clear_search"
             android:hint="Search"
             android:inputType="text"
             android:maxLines="1"
-            android:drawableLeft="@android:drawable/ic_search_category_default" />
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"/>
 
     </RelativeLayout>
 

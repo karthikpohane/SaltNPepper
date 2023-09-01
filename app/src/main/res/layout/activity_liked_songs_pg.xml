@@ -31,7 +31,7 @@
     </RelativeLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/manageacc_btn"
+        android:id="@+id/playlist_btn"
         android:layout_width="57dp"
         android:layout_height="60dp"
         android:layout_marginBottom="28dp"
@@ -39,12 +39,12 @@
         android:clickable="true"
         android:focusable="true"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/upload_btn"
-        app:layout_constraintEnd_toEndOf="@+id/upload_btn"
-        app:srcCompat="@drawable/outline_person_24" />
+        app:layout_constraintBottom_toTopOf="@+id/recording_btn"
+        app:layout_constraintEnd_toEndOf="@+id/recording_btn"
+        app:srcCompat="@drawable/outline_music_note_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/upload_btn"
+        android:id="@+id/recording_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
@@ -52,12 +52,12 @@
         android:clickable="true"
         android:focusable="true"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/heart_btn"
-        app:layout_constraintEnd_toEndOf="@+id/heart_btn"
-        app:srcCompat="@drawable/upload_file_24" />
+        app:layout_constraintBottom_toTopOf="@+id/menu_btn"
+        app:layout_constraintEnd_toEndOf="@+id/menu_btn"
+        app:srcCompat="@drawable/mic_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/heart_btn"
+        android:id="@+id/menu_btn"
         android:layout_width="56dp"
         android:layout_height="57dp"
         android:layout_marginEnd="40dp"
@@ -67,6 +67,6 @@
         android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/heart" />
+        app:srcCompat="@drawable/call_split_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
