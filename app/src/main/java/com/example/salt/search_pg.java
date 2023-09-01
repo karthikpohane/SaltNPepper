@@ -1,5 +1,6 @@
 package com.example.salt;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Layout;
@@ -60,6 +61,22 @@ public class search_pg extends AppCompatActivity {
             return false;
         });
 
+        // Clear button click listener
+        searchAutoCompleteTextView.setOnTouchListener(new View.OnTouchListener() {
+            @SuppressLint("ClickableViewAccessibility")
+            @Override
+            public boolean onTouch(View v, android.view.MotionEvent event) {
+                final int DRAWABLE_RIGHT = 2;
+                if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
+                    if (event.getRawX() >= (searchAutoCompleteTextView.getRight() - searchAutoCompleteTextView.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        searchAutoCompleteTextView.setText(""); // Clear the text
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
         ImageView back_btn;
         back_btn = findViewById(R.id.back_btn);
         back_btn.setOnClickListener(new View.OnClickListener() {
@@ -113,6 +130,7 @@ public class search_pg extends AppCompatActivity {
         });
 
     }
+
     @Override
     public void onBackPressed() {
         finish();

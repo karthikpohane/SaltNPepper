@@ -19,7 +19,7 @@ public class likedSongs_pg extends AppCompatActivity {
     private Animation toBottom;
     private boolean clicked = false;
 
-    FloatingActionButton heart_btn, upload_btn, manageacc_btn;
+    FloatingActionButton menu_btn, recording_btn, playlist_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,25 +42,28 @@ public class likedSongs_pg extends AppCompatActivity {
         fromBottom = AnimationUtils.loadAnimation(this, R.anim.from_bottom_anim);
         toBottom = AnimationUtils.loadAnimation(this, R.anim.to_bottom_anim);
 
-        heart_btn = findViewById(R.id.heart_btn);
-        heart_btn.setOnClickListener(new View.OnClickListener() {
+        menu_btn = findViewById(R.id.menu_btn);
+        menu_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onAddButtonClicked();
             }
         });
-        upload_btn = findViewById(R.id.upload_btn);
-        upload_btn.setOnClickListener(new View.OnClickListener() {
+        recording_btn = findViewById(R.id.recording_btn);
+        recording_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Upload Page!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Your Recordings!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), RecordActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
-        manageacc_btn = findViewById(R.id.manageacc_btn);
-        manageacc_btn.setOnClickListener(new View.OnClickListener() {
+        playlist_btn = findViewById(R.id.playlist_btn);
+        playlist_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Manage Account Page", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Your Playlist", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -73,23 +76,23 @@ public class likedSongs_pg extends AppCompatActivity {
 
     private void setVisibility(boolean clicked) {
         if (!clicked) {
-            upload_btn.setVisibility(View.VISIBLE);
-            manageacc_btn.setVisibility(View.VISIBLE);
+            recording_btn.setVisibility(View.VISIBLE);
+            playlist_btn.setVisibility(View.VISIBLE);
         } else {
-            upload_btn.setVisibility(View.INVISIBLE);
-            manageacc_btn.setVisibility(View.INVISIBLE);
+            recording_btn.setVisibility(View.INVISIBLE);
+            playlist_btn.setVisibility(View.INVISIBLE);
         }
     }
 
     private void setAnimation(boolean clicked) {
         if (!clicked) {
-            upload_btn.startAnimation(fromBottom);
-            manageacc_btn.startAnimation(fromBottom);
-            heart_btn.startAnimation(rotateOpen);
+            recording_btn.startAnimation(fromBottom);
+            playlist_btn.startAnimation(fromBottom);
+            menu_btn.startAnimation(rotateOpen);
         } else {
-            upload_btn.startAnimation(toBottom);
-            manageacc_btn.startAnimation(toBottom);
-            heart_btn.startAnimation(rotateClose);
+            recording_btn.startAnimation(toBottom);
+            playlist_btn.startAnimation(toBottom);
+            menu_btn.startAnimation(rotateClose);
         }
     }
     @Override
