@@ -5,54 +5,106 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".UploadAlbumActivity">
+    tools:context=".UploadAlbumActivity"
+    android:background="@color/black">
+
+    <RelativeLayout
+        android:id="@+id/rel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/arrow_back_i24"
+            android:padding="14dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Upload Album"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linear"
-        android:orientation="horizontal">
-        <Button
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:background="@drawable/rounded_bg_switch">
+
+        <androidx.appcompat.widget.AppCompatButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Choose"
+            android:textAllCaps="false"
             android:layout_weight="1"
             android:id="@+id/btnAlbumChoose"
-            />
+            android:background="@drawable/rounded"/>
 
         <EditText
             android:id="@+id/txtAlbumName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="4"
-            android:hint="Enter a name of album" />
+            android:textColorHint="@color/white_50"
+            android:hint="Enter The Name Of Album"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"/>
     </LinearLayout>
 
     <LinearLayout
+        android:padding="10dp"
+        android:layout_marginTop="14dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linear2"
         android:layout_below="@+id/linear"
         android:orientation="vertical"
-        android:weightSum="2">
+        android:weightSum="2"
+        android:background="@drawable/rounded_bg_switch">
         <TextView
+            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Choose Category:"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
+            android:textSize="18dp"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_marginTop="10dp"/>
+
         <Spinner
+            android:padding="4dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/spinner"/>
         <ImageView
+            android:layout_gravity="center"
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:id="@+id/albumImage"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -60,13 +112,20 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="vertical">
-        <Button
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_marginTop="13dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/btnAlbumUpload"
-            android:text="Upload"/>
+            android:text="Upload"
+            android:textAllCaps="false"
+            android:background="@drawable/rounded"/>
 
     </LinearLayout>
+
+    </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

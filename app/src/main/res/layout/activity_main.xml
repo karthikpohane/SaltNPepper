@@ -54,18 +54,17 @@
                     android:id="@+id/greetingTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:elevation="10dp"
                     android:fontFamily="@font/bowlby_one_sc"
                     android:textAlignment="center"
                     android:textColor="@color/bar"
-                    android:textSize="40sp"
+                    android:textSize="30sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:layout_marginTop="7dp"
                     android:id="@+id/nameTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:elevation="10dp"
                     android:textAlignment="center"
                     android:textColor="@color/forth"
                     android:textSize="20sp"

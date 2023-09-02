@@ -1,7 +1,10 @@
 package com.example.salt;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,6 +39,19 @@ public class ClientActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client);
 
+        //Back Button.
+        ImageView back_btn;
+        back_btn = findViewById(R.id.back_btn);
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), bolt_pg.class);
+                startActivity(intent);
+                finish();
+
+            }
+        });
+
         recyclerView = findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
         progressDialog = new ProgressDialog(this);
@@ -64,5 +80,12 @@ public class ClientActivity extends AppCompatActivity {
                 progressDialog.dismiss();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), bolt_pg.class);
+        startActivity(intent);
+        finish();
     }
 }
