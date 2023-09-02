@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:ns1="http://schemas.android.com/apk/res-auto">
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="first">#64CCC5</color>
@@ -21,4 +21,31 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#FFFFFF</color>
     <color name="lightGrey">#EEEDED</color>
+
+    <array name="av_colors">
+        <item>@color/black</item>
+        <item>@color/third</item>
+        <item>@color/second</item>
+        <item>@color/first</item>
+    </array>
+
+    <color name="av_color_bg">#FF000000</color>
+    <color name="av_color1">#242C30</color>
+    <color name="av_color2">#001C30</color>
+    <color name="av_color3">#176B87</color>
+    <color name="av_color4">#64CCC5</color>
+    <color name="av_color5">#DAFFFB</color>
+
+    <declare-styleable name="GLAudioVisualizationView" ns1:ignore="ResourceName">
+        <attr format="integer" name="av_wavesCount"/>
+        <attr format="reference" name="av_wavesColors"/>
+        <attr format="dimension" name="av_wavesHeight"/>
+        <attr format="dimension" name="av_wavesFooterHeight"/>
+        <attr format="dimension" name="av_bubblesSize"/>
+        <attr format="boolean" name="av_bubblesRandomizeSizes"/>
+        <attr format="integer" name="av_bubblesPerLayer"/>
+        <attr format="integer" name="av_layersCount"/>
+        <attr format="color|reference" name="av_backgroundColor"/>
+    </declare-styleable>
+
 </resources>

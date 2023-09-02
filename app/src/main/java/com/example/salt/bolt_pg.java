@@ -55,7 +55,9 @@ public class bolt_pg extends AppCompatActivity {
         btnLikedSongs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+//                Intent intent = new Intent(getApplicationContext(), Liked.class);
+//                startActivity(intent);
+//                finish();
             }
         });
     }
