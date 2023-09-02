@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class bolt_pg extends AppCompatActivity {
 
-    private RelativeLayout btnLikedSongs;
+    private RelativeLayout btnLikedSongs,btnPlaylist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,7 @@ public class bolt_pg extends AppCompatActivity {
         ImageView back_btn;
         back_btn = findViewById(R.id.back_btn);
         btnLikedSongs = findViewById(R.id.btnLikedSongs);
+        btnPlaylist = findViewById(R.id.btnPlaylist);
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,9 +56,18 @@ public class bolt_pg extends AppCompatActivity {
         btnLikedSongs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), Liked.class);
-//                startActivity(intent);
-//                finish();
+                Intent intent = new Intent(getApplicationContext(), LikedActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        btnPlaylist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ClientActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

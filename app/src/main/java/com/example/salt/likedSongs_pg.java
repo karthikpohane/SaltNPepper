@@ -64,6 +64,8 @@ public class likedSongs_pg extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Your Playlist", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(likedSongs_pg.this, UploadAlbumActivity.class);
+                startActivity(intent);
             }
         });
     }

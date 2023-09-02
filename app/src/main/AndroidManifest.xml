@@ -58,7 +58,19 @@
             android:name=".Registerpg"
             android:exported="false" />
         <activity
+            android:name=".LikedActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ClientActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UploadAlbumActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SongActivity"
             android:exported="false" />
         <activity
             android:name=".salt_pepper"

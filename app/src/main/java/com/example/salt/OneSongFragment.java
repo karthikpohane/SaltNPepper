@@ -107,8 +107,8 @@ public class OneSongFragment extends Fragment {
 
         if(getActivity() instanceof MainActivity){
             jcAudios = ((MainActivity)getActivity()).getJcAudios();}
-//        else if (getActivity() instanceof SongActivity){
-//            jcAudios = ((SongActivity) getActivity()).getJcAudios();
+        else if (getActivity() instanceof LikedActivity){
+            jcAudios = ((SongActivity) getActivity()).getJcAudios();}
 //        } else if (getActivity() instanceof LikedActivity)
 //            jcAudios = ((LikedActivity) getActivity()).getJcAudios();
         jcPlayerView.initPlaylist(jcAudios,null);
