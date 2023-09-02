@@ -84,17 +84,20 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
+                android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="Top 5 hits"
                 android:textSize="20dp"
                 android:textAllCaps="true"
-                android:textStyle="bold"
+                android:textStyle="bold|italic"
                 android:textColor="@color/white_50"/>
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="200dp">
                 <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="10dp"
                     android:id="@+id/recyclerView1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -106,8 +109,11 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="Top 5 Suggestions"
                 android:textSize="20dp"
                 android:textAllCaps="true"
