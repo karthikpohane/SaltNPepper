@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Choose Image"
-            android:padding="10dp"
+            android:padding="11dp"
             android:textAllCaps="false"
             android:layout_weight="1"
             android:id="@+id/btnAlbumChoose"
