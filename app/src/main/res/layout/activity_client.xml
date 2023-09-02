@@ -5,11 +5,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="8dp"
-    tools:context=".ClientActivity">
+    tools:context=".ClientActivity"
+    android:orientation="vertical"
+    android:background="@color/black">
+
+    <RelativeLayout
+        android:id="@+id/rel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/arrow_back_i24"
+            android:padding="14dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Your Albums"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:padding="20dp"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/rounded_bg_switch"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recycler"></androidx.recyclerview.widget.RecyclerView>
+        android:id="@+id/recycler"/>
 
 </LinearLayout>

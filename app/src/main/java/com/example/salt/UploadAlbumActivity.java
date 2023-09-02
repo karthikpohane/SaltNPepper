@@ -143,6 +143,9 @@ public class UploadAlbumActivity extends AppCompatActivity{
                             mDatabase.child(uploadId).setValue(upload);
                             progressDialog.dismiss();
                             Toast.makeText(UploadAlbumActivity.this, "File Uploaded", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), likedSongs_pg.class);
+                            startActivity(intent);
+                            finish();
                         }
                     });
                 }

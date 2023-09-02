@@ -5,54 +5,109 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".UploadAlbumActivity">
+    tools:context=".UploadAlbumActivity"
+    android:background="@color/black">
+
+    <RelativeLayout
+        android:id="@+id/rel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/arrow_back_i24"
+            android:padding="14dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Create Playlist"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_below="@+id/rel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_marginTop="13dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/linear"
-        android:orientation="horizontal">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Choose"
-            android:layout_weight="1"
-            android:id="@+id/btnAlbumChoose"
-            />
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:background="@drawable/rounded_bg_switch">
 
         <EditText
             android:id="@+id/txtAlbumName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="4"
-            android:hint="Enter a name of album" />
+            android:hint="Give A Name To your Album"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white_50"/>
     </LinearLayout>
 
     <LinearLayout
+        android:layout_marginTop="13dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linear2"
         android:layout_below="@+id/linear"
         android:orientation="vertical"
-        android:weightSum="2">
+        android:weightSum="3"
+        android:background="@drawable/rounded_bg_switch"
+        android:padding="10dp">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Choose Category:"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:layout_marginTop="10dp"/>
+            android:text="Choose Category"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="20dp"/>
+
         <Spinner
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/spinner"/>
+            android:id="@+id/spinner"
+            android:padding="10dp"
+            android:background="@drawable/rounded"/>
         <ImageView
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:id="@+id/albumImage"
+            android:layout_gravity="center"
             android:layout_marginTop="20dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose Image"
+            android:padding="10dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:id="@+id/btnAlbumChoose"
+            android:background="@drawable/rounded"
+            android:textAllCaps="false"/>
     </LinearLayout>
 
     <LinearLayout
@@ -60,13 +115,21 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="vertical">
-        <Button
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/btnAlbumUpload"
-            android:text="Upload"/>
+            android:text="Upload"
+            android:background="@drawable/rounded"
+            android:textAllCaps="false"/>
 
     </LinearLayout>
+
+    </LinearLayout>
+
+    </ScrollView>
 
 </RelativeLayout>
