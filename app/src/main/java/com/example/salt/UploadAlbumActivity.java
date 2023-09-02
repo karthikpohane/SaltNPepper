@@ -57,6 +57,19 @@ public class UploadAlbumActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_album);
 
+        //Back Button.
+        ImageView back_btn;
+        back_btn = findViewById(R.id.back_btn);
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), bolt_pg.class);
+                startActivity(intent);
+                finish();
+
+            }
+        });
+
         initViews();
         auth = FirebaseAuth.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -180,5 +193,12 @@ public class UploadAlbumActivity extends AppCompatActivity{
         ContentResolver cr = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getMimeTypeFromExtension(cr.getType(uri));
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), bolt_pg.class);
+        startActivity(intent);
+        finish();
     }
 }
