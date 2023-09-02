@@ -53,7 +53,8 @@
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Choose"
+            android:text="Choose Image"
+            android:padding="10dp"
             android:textAllCaps="false"
             android:layout_weight="1"
             android:id="@+id/btnAlbumChoose"
