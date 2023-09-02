@@ -45,7 +45,6 @@ public class JcSongsAdapter extends RecyclerView.Adapter<JcSongsAdapter.SongsAda
 
         if(getSongs != null){
             if(selectedPosition == position){
-                holder.itemView.setBackgroundColor(ContextCompat.getColor(context, com.example.jean.jcplayer.R.color.colorAccent));
                 holder.ivPlayActive.setVisibility(View.VISIBLE);
             } else {
                 holder.itemView.setBackgroundColor(ContextCompat.getColor(context,R.color.transparent));
