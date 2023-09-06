@@ -35,6 +35,7 @@ import android.widget.Toast;
 import com.example.jean.jcplayer.model.JcAudio;
 import com.example.jean.jcplayer.view.JcPlayerView;
 import com.example.salt.Adapter.JcSongsAdapter;
+import com.example.salt.Adapter.JcSongsAdapter2;
 import com.example.salt.Model.GetSongs;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
     Boolean checkin = false;
     List<GetSongs> mupload;
     JcSongsAdapter adapter,adapter1;
+    JcSongsAdapter2 adapter2;
 
 
     @Override
@@ -371,7 +373,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //----------- song display ----------------
-        adapter = new JcSongsAdapter(getApplicationContext(), mupload, new JcSongsAdapter.RecyclerItemClickListner() {
+        adapter2 = new JcSongsAdapter2(getApplicationContext(), mupload, new JcSongsAdapter2.RecyclerItemClickListner() {
             @Override
             public void onClickListener(GetSongs songs, int position) {
                 changeSelectedSong(position);
@@ -397,9 +399,9 @@ public class MainActivity extends AppCompatActivity {
                     checkin = true;
                     jcAudios.add(JcAudio.createFromURL(getSongs.getSongTitle(),getSongs.getSongLink()));
                 }
-                adapter.setSelectedPosition(0);
-                recyclerView1.setAdapter(adapter);
-                adapter.notifyDataSetChanged();
+                adapter2.setSelectedPosition(0);
+                recyclerView1.setAdapter(adapter2);
+                adapter2.notifyDataSetChanged();
 
                 if(checkin){
                 } else {
@@ -438,7 +440,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 adapter1.setSelectedPosition(0);
                 recyclerView2.setAdapter(adapter1);
-                adapter.notifyDataSetChanged();
+                adapter1.notifyDataSetChanged();
 
                 if(checkin){
                 } else {
@@ -454,10 +456,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void changeSelectedSong(int index){
-        adapter.notifyItemChanged(adapter.getSelectedPosition());
+        adapter2.notifyItemChanged(adapter.getSelectedPosition());
         currentIndex = index;
-        adapter.setSelectedPosition(currentIndex);
-        adapter.notifyItemChanged(currentIndex);
+        adapter2.setSelectedPosition(currentIndex);
+        adapter2.notifyItemChanged(currentIndex);
     }
     public ArrayList<JcAudio> getJcAudios() {
         return jcAudios;
