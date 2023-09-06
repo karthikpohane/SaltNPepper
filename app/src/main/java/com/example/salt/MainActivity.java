@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Getting Greetings..........
-        greetingTextView = findViewById(R.id.greetingTextView);
+//        greetingTextView = findViewById(R.id.greetingTextView);
         recyclerView1 = findViewById(R.id.recyclerView1);
         recyclerView1.setLayoutManager(new LinearLayoutManager(this));
         recyclerView1.setAdapter(adapter);
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             greeting = "Good Evening!";
         }
 
-        greetingTextView.setText(greeting);
+//        greetingTextView.setText(greeting);
 
         //Name Display.......
         nameTextView = findViewById(R.id.nameTextView);
@@ -391,7 +391,6 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 mupload.clear();
                 for(DataSnapshot das: snapshot.getChildren()){
-                    System.out.println("Hi");
                     GetSongs getSongs = das.getValue(GetSongs.class);
                     getSongs.setmKey(das.getKey());
                     currentIndex = 0;
@@ -456,7 +455,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void changeSelectedSong(int index){
-        adapter2.notifyItemChanged(adapter.getSelectedPosition());
+        adapter2.notifyItemChanged(adapter2.getSelectedPosition());
         currentIndex = index;
         adapter2.setSelectedPosition(currentIndex);
         adapter2.notifyItemChanged(currentIndex);

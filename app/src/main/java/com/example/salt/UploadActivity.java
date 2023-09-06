@@ -229,6 +229,8 @@ public class UploadActivity extends AppCompatActivity implements AdapterView.OnI
             artist.setEnabled(false);
             album.setEnabled(false);
             dataa.setEnabled(false);
+            btnUploadImg.setEnabled(false);
+            open.setEnabled(false);
             final StorageReference sRef = storageReference.child(Constants.STORAGE_PATH_ART +
                     System.currentTimeMillis() + "."+getFileExtension(filePath));
             sRef.putFile(filePath).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -270,6 +272,8 @@ public class UploadActivity extends AppCompatActivity implements AdapterView.OnI
                             album.getText().clear();
                             artist.getText().clear();
                             dataa.getText().clear();
+                            btnUploadImg.setEnabled(true);
+                            open.setEnabled(true);
                             txtSongFileSelected.setText("No file Selected");
                             album_art.setImageResource(android.R.color.transparent);
                         }
