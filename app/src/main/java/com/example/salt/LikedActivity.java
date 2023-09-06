@@ -78,7 +78,6 @@ public class LikedActivity extends AppCompatActivity {
             }
         });
         databaseReference = FirebaseDatabase.getInstance().getReference("liked");
-        System.out.println(databaseReference);
         valueEventListener = databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -123,8 +122,8 @@ public class LikedActivity extends AppCompatActivity {
         jcPlayerView = findViewById(R.id.jcplayer);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mupload = new ArrayList<>();
         recyclerView.setAdapter(adapter);
+        mupload = new ArrayList<>();
     }
 
     @Override

@@ -60,7 +60,6 @@
     <FrameLayout
         android:id="@+id/songFrag"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="100dp" />
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>
