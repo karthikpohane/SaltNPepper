@@ -1,39 +1,26 @@
 package com.example.salt;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.res.ResourcesCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.Manifest;
-
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.jean.jcplayer.model.JcAudio;
-import com.example.jean.jcplayer.view.JcPlayerView;
 import com.example.salt.Adapter.JcSongsAdapter;
 import com.example.salt.Adapter.JcSongsAdapter2;
 import com.example.salt.Model.GetSongs;
@@ -44,6 +31,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -63,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
     private int currentIndex;
     RecyclerView recyclerView1,recyclerView2;
     Boolean checkin = false;
-    List<GetSongs> mupload;
-    JcSongsAdapter adapter,adapter1;
+    List<GetSongs> mupload,mupload2;
+    JcSongsAdapter adapter1;
     JcSongsAdapter2 adapter2;
 
 
@@ -77,11 +65,12 @@ public class MainActivity extends AppCompatActivity {
 //        greetingTextView = findViewById(R.id.greetingTextView);
         recyclerView1 = findViewById(R.id.recyclerView1);
         recyclerView1.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView1.setAdapter(adapter);
+        recyclerView1.setAdapter(adapter2);
         recyclerView2 = findViewById(R.id.recyclerView2);
         recyclerView2.setLayoutManager(new LinearLayoutManager(this));
         recyclerView2.setAdapter(adapter1);
         mupload = new ArrayList<>();
+        mupload2 = new ArrayList<>();
 
         // Get the current time
         Calendar calendar = Calendar.getInstance();
@@ -377,7 +366,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClickListener(GetSongs songs, int position) {
                 changeSelectedSong(position);
-                System.out.println("Hey");
                 OneSongFragment fragment = new OneSongFragment(position);
                 fragment.setSong(songs);
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -386,7 +374,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        valueEventListener1 = databaseReference.addValueEventListener(new ValueEventListener() {
+        valueEventListener1 = databaseReference.limitToFirst(1).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 mupload.clear();
@@ -413,7 +401,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        adapter1 = new JcSongsAdapter(getApplicationContext(), mupload, new JcSongsAdapter.RecyclerItemClickListner() {
+        adapter1 = new JcSongsAdapter(getApplicationContext(), mupload2, new JcSongsAdapter.RecyclerItemClickListner() {
             @Override
             public void onClickListener(GetSongs songs, int position) {
                 changeSelectedSong(position);
@@ -424,16 +412,15 @@ public class MainActivity extends AppCompatActivity {
                 ft.commit();
             }
         });
-
         valueEventListener2 = databaseReference.limitToLast(5).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                mupload.clear();
+                mupload2.clear();
                 for(DataSnapshot das: snapshot.getChildren()){
                     GetSongs getSongs = das.getValue(GetSongs.class);
                     getSongs.setmKey(das.getKey());
                     currentIndex = 0;
-                    mupload.add(getSongs);
+                    mupload2.add(getSongs);
                     checkin = true;
                     jcAudios.add(JcAudio.createFromURL(getSongs.getSongTitle(),getSongs.getSongLink()));
                 }
