@@ -128,13 +128,10 @@ Salt&Pepper is licensed under the <b><u>MIT License</u><b>. You are free to use,
 
 ## Acknowledgments
 We would like to thank the open-source community for their contributions and support in making Salt&Pepper a reality.
-<hr>
 Thank you for choosing Salt&Pepper! Enjoy the music, podcasts, and the creative freedom to record, upload, and share your own content. If you have any questions or need assistance, please don't hesitate to reach out to us. 
-<center>
-  
+<hr>
+<center>  
 Happy listening and creating! - Team <b>Salt&Pepper</b>
-![regpglogo](https://github.com/karthikpohane/SaltNPepper/assets/117158132/2fa5f942-cec8-414a-949f-56f581b2b6c2)
-
 </center>
 
 
