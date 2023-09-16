@@ -108,6 +108,11 @@ Salt&Pepper offers two types of accounts:
   <li><b>Public Account</b>: Your playlists, recordings, and uploaded songs are visible to the public. Share your music and podcasts with the world.</li>
 </ul>
 
+## Demo Working
+
+![demogif1](https://github.com/karthikpohane/SaltNPepper/assets/117158132/4214dfaf-0ebc-46cc-93d9-e9e68cc0a381)
+
+
 ## Feedback
 We value your feedback! If you encounter any issues, have suggestions, or want to report a bug, please contact our support team at <b><u>kartikpohane487@gmail.com</u></b>.
 
