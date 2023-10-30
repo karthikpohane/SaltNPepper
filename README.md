@@ -128,7 +128,6 @@ Salt&Pepper is licensed under the <b><u>MIT License</u><b>. You are free to use,
 <ul>
   <li>Version 1.0.0 (Initial Release) - September 2023</li>
   <li>Version 1.1.0 (Bug Fixes and Enhancements) - October 2023</li>
-  <li>Version 1.2.0 (New Features) - November 2023</li>
 </ul>
 
 ## Acknowledgments
